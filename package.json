@@ -1,0 +1,35 @@
+{
+  "name": "tv-kanal-yonetici",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Xiaomi TV (MediaTek / LiveTV) uydu kanal listesini Mac üzerinden ADB ile okuma, düzenleme ve TV'ye geri uygulama aracı",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n sunucu,web -c blue,magenta \"tsx watch server/index.ts\" \"vite\"",
+    "build": "vite build",
+    "start": "vite build && tsx server/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.server.json --noEmit",
+    "test": "tsx --test shared/dedupe.test.ts shared/planner.test.ts server/reader.test.ts server/uiDump.test.ts server/executor.test.ts",
+    "serve": "tsx server/index.ts"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "fast-xml-parser": "^4.5.1"
+  },
+  "devDependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  }
+}
